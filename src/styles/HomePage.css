@@ -1,0 +1,130 @@
+/* Home Page Container */
+.home-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Search Header */
+.search-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.search-header h1 {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.search-container {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#search-bar {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px 0 0 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+#search-bar:focus {
+  outline: none;
+  border-color: var(--link-color);
+}
+
+#search-button {
+  padding: 0 1rem;
+  background-color: var(--link-color);
+  color: white;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#search-button:hover {
+  background-color: var(--accent-color);
+}
+
+/* Book Grid */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.no-results, .error-message {
+  text-align: center;
+  grid-column: 1 / -1;
+  color: var(--text-color);
+  padding: 2rem;
+}
+
+/* Loading Indicator */
+.loading-indicator {
+  display: none;
+  width: 50px;
+  height: 50px;
+  margin: 2rem auto;
+  border: 5px solid #f3f3f3;
+  border-top: 5px solid var(--link-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pagination Controls */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.pagination-button {
+  padding: 0.5rem 1rem;
+  background-color: var(--link-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: var(--accent-color);
+}
+
+.pagination-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.page-info {
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+/* Dark Mode Styles */
+body.dark-mode #search-bar {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+body.dark-mode .loading-indicator {
+  border-color: #444;
+  border-top-color: var(--link-color);
+}
