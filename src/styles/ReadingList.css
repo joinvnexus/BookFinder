@@ -1,73 +1,295 @@
-.reading-list-container {
-    padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
+/* Reading List Styles */
+.library-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.library-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+.lib-back-btn {
+  background: none;
+  border: none;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lib-back-btn svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+.lib-back-btn:hover {
+  background-color: var(--hover-bg, #f0f0f0);
+}
+
+.lib-title {
+  font-size: 1.75rem;
+  margin: 0;
+  color: var(--text-primary, #333);
+}
+
+.lib-stats {
+  margin-left: auto;
+  background-color: var(--accent-light, #e0e8ff);
+  color: var(--accent, #4361ee);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.lib-content {
+  min-height: 60vh;
+}
+
+/* Empty State */
+.lib-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary, #666);
+}
+
+.lib-empty.hidden {
+  display: none;
+}
+
+.lib-empty-icon {
+  width: 80px;
+  height: 80px;
+  fill: var(--icon-secondary, #ddd);
+  margin-bottom: 1.5rem;
+}
+
+.lib-empty h2 {
+  color: var(--text-primary, #333);
+  margin-bottom: 0.5rem;
+}
+
+.lib-explore-btn {
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent, #4361ee);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.lib-explore-btn:hover {
+  background-color: var(--accent-dark, #3a56d4);
+}
+
+/* Book Grid */
+.lib-book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  padding: 3rem 0;
+  margin: 0;
+  /* background-color: red; */
+  list-style: none;
+}
+
+.lib-book-grid.hidden {
+  display: none;
+}
+
+.lib-book-item {
+  margin: 0;
+  padding: 0;
+}
+
+.lib-book-card {
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* height: 100%; */
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--card-bg, #fff);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.lib-book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.lib-book-cover-container {
+  position: relative;
+  aspect-ratio: 2/3;
+  overflow: hidden;
+}
+
+.lib-book-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  aspect-ratio: 2/3;
+  transition: transform 0.3s;
+}
+
+.lib-book-card:hover .lib-book-cover {
+  transform: scale(1.05);
+}
+
+.lib-book-actions {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  padding: 0.5rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.lib-book-card:hover .lib-book-actions {
+  opacity: 1;
+}
+
+.lib-remove-btn,
+.lib-view-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--danger, #dc3545);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.lib-view-btn {
+  background-color: var(--accent, #4361ee);
+  margin-left: 0.5rem;
+}
+
+.lib-remove-btn:hover {
+  background-color: var(--danger-dark, #c82333);
+}
+
+.lib-view-btn:hover {
+  background-color: var(--accent-dark, #3a56d4);
+}
+
+.lib-remove-btn svg,
+.lib-view-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.lib-book-info {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.lib-book-title {
+  font-size: 1rem;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary, #333);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.lib-book-author {
+  font-size: 0.85rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-secondary, #666);
+}
+
+.lib-book-rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--rating, #ffb400);
+  font-size: 0.9rem;
+}
+
+.lib-book-rating span {
+  color: var(--text-secondary, #666);
+  font-size: 0.8rem;
+}
+
+/* Toast Notification */
+.lib-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--danger, #dc3545);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  animation: lib-toast-slide 0.3s ease-out;
+}
+
+.lib-toast-fade {
+  animation: lib-toast-fade 0.3s ease-in forwards;
+}
+
+@keyframes lib-toast-slide {
+  from { bottom: -50px; opacity: 0; }
+  to { bottom: 20px; opacity: 1; }
+}
+
+@keyframes lib-toast-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .lib-book-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
   }
   
-  h2 {
-    text-align: center;
-    font-size: 24px;
-    margin-bottom: 20px;
+  .library-header {
+    flex-wrap: wrap;
   }
   
-  #reading-list {
-    list-style: none;
-    padding: 0;
+  .lib-stats {
+    margin-left: 0;
+    width: 100%;
+    order: 1;
   }
-  
-  .reading-list-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .book-cover {
-    width: 80px;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .book-details {
-    flex-grow: 1;
-  }
-  
-  .book-details h3 {
-    margin: 0;
-    font-size: 18px;
-  }
-  
-  .book-details p {
-    margin: 5px 0;
-    font-size: 14px;
-    color: #555;
-  }
-  
-  .remove-btn {
-    padding: 5px 10px;
-    background-color: #ff4d4d;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    margin-top: 10px;
-  }
-  
-  .remove-btn:hover {
-    background-color: #e60000;
-  }
-  
-  #empty-message {
-    text-align: center;
-    font-size: 16px;
-    color: #888;
-    margin-top: 20px;
-  }
-  
-  .hidden {
-    display: none;
-  }
-  
+}
+
+/* Dark Mode */
+body.dark-mode .library-container {
+  --text-primary: #f0f0f0;
+  --text-secondary: #aaa;
+  --card-bg: #2a2a2a;
+  --hover-bg: rgba(255, 255, 255, 0.1);
+  --accent-light: rgba(67, 97, 238, 0.2);
+  --icon-secondary: #444;
+}

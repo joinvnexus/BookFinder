@@ -1,12 +1,13 @@
 /* Basic styling */
  @import '../styles/theme.css'; 
-@import './bookDetail.css';
-@import './readingList.css';
+/* @import './bookDetail.css'; */
+@import './ReadingList.css';
 @import './dashboard.css';
 @import './navbar.css';
 @import './HomePage.css';
 @import'./BookCard.css';
 @import './footer.css';
+@import'./BookDetails.css';
 
 
 body {
