@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderHomePage();
 
   // Render Footer
-  //  renderFooter();
+    renderFooter();
 });
 
 // Function to navigate between pages (simple routing)
