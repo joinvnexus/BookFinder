@@ -1,0 +1,60 @@
+/* Theme Variables and Base Styles */
+:root {
+  /* Light theme defaults */
+  --background-color: #ffffff;
+  --text-color: #000000;
+  --link-color: #007bff;
+  --logo-color: #007bff;
+  --nav-bg-color: #ffffff;
+  --nav-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --hover-color: rgba(0, 123, 255, 0.1);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme Toggle Button */
+#theme-toggle {
+  background: inherit;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background-color: var(--hover-color);
+  transform: scale(1.1);
+}
+
+/* Navbar Element Colors */
+.navbar {
+  background-color: var(--nav-bg-color);
+  color: var(--text-color);
+}
+
+.navbar a {
+  color: var(--link-color);
+  transition: color 0.3s ease;
+}
+
+.navbar-logo {
+  color: var(--logo-color);
+}
+
+/* Dark Mode Overrides */
+body.dark-mode {
+  --background-color: #121212;
+  --text-color: #ffffff;
+  --link-color: #1e90ff;
+  --logo-color: #1e90ff;
+  --nav-bg-color: #1a1a1a;
+  --nav-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --hover-color: rgba(30, 144, 255, 0.1);
+}
