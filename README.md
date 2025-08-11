@@ -71,7 +71,7 @@ BOOKFINDER/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/reading-list.git
+   git clone  https://github.com/joinvnexus/BookFinder.git
    ```
 
 2. Open in your browser:
